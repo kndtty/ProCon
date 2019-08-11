@@ -1,0 +1,3 @@
+template.*
+*.sh
+__pycache__
