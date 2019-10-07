@@ -16,7 +16,15 @@ typedef long long ll;
 long long GCD(long long a, long long b){if(b==0)return a;return GCD(b,a%b);}
 
 int main() {
-    int N, M; cin >> N >> M;
-    long long res = res = pow(2, M) * (M * 1900 + (N - M) * 100);
-    cout << res << endl;
+    int N; cin >> N;
+    vector<int> B(N-1);
+    repp(i,0,N-1) cin >> B[i];
+
+    ll ans = 0;
+    repp(i,1,N-1) {
+        ans += min(B[i], B[i-1]);
+    }
+    ans += B[0];
+    ans += B[N-2];
+    cout << ans << endl;
 }

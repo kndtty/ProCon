@@ -8,15 +8,16 @@
 #include <numeric>
 
 using namespace std;
-#define repp(i,a,b) for(int i = (int)(a) ; i < (int)(b) ; ++i)
-#define repm(i,a,b) for(int i = (int)(a) ; i > (int)(b) ; --i)
 
 typedef long long ll;
 
 long long GCD(long long a, long long b){if(b==0)return a;return GCD(b,a%b);}
 
 int main() {
-    int N, M; cin >> N >> M;
-    long long res = res = pow(2, M) * (M * 1900 + (N - M) * 100);
+    long long N, M; cin >> N >> M;
+    long long res;
+    if (N == 1 && M == 1) res = 1;
+    else if (N == 1 || M == 1) res = N * M - 2;
+    else res = N * M - 2 * N - 2 *  M + 4;;
     cout << res << endl;
 }

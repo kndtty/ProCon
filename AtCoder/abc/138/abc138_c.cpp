@@ -16,7 +16,19 @@ typedef long long ll;
 long long GCD(long long a, long long b){if(b==0)return a;return GCD(b,a%b);}
 
 int main() {
-    int N, M; cin >> N >> M;
-    long long res = res = pow(2, M) * (M * 1900 + (N - M) * 100);
-    cout << res << endl;
+    int N; cin >> N;
+    priority_queue<float, vector<float>, greater<float> > q;
+    repp(i,0,N) {
+        float x; cin >> x;
+        q.push(x);
+    }
+
+    while(q.size() > 1) {
+        float a, b;
+        a = q.top(); q.pop();
+        b = q.top(); q.pop();
+        float c = (a+b)/2;
+        q.push(c);
+    }
+    cout << q.top() << endl;
 }

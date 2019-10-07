@@ -17,16 +17,16 @@ int main() {
     int N; cin >> N;
     ll F[N][10];
     for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < 10; ++j) cin >> F[i][10];
+        for (int j = 0; j < 10; ++j) cin >> F[i][j];
     } 
     ll P[N][11];
     for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < 11; ++j) cin >> P[i][10];
+        for (int j = 0; j < 11; ++j) cin >> P[i][j];
     } 
 
     ll res = -(1LL << 9);
 
-    for (int i = 0; i < 1 << 10; ++i) {
+    for (int i = 0; i < (1 << 10); ++i) {
         ll tmp_res = 0;
         for (int j = 0; j < N; ++j) {
             int count = 0;

@@ -16,7 +16,10 @@ typedef long long ll;
 long long GCD(long long a, long long b){if(b==0)return a;return GCD(b,a%b);}
 
 int main() {
-    int N, M; cin >> N >> M;
-    long long res = res = pow(2, M) * (M * 1900 + (N - M) * 100);
-    cout << res << endl;
+    int N, K; cin >> N >> K;
+    vector<int> h(N); repp(i,0,N) cin >> h[i];
+    int count = 0;
+
+    repp(i,0,N) if (h[i] >= K) ++count;
+    cout << count << endl;
 }

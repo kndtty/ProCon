@@ -16,7 +16,8 @@ typedef long long ll;
 long long GCD(long long a, long long b){if(b==0)return a;return GCD(b,a%b);}
 
 int main() {
-    int N, M; cin >> N >> M;
-    long long res = res = pow(2, M) * (M * 1900 + (N - M) * 100);
-    cout << res << endl;
+    int a; cin >> a;
+    string s; cin >> s;
+    if (a >= 3200) cout << s << endl;
+    else cout << "red" << endl;
 }

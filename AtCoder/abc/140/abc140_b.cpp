@@ -16,23 +16,20 @@ typedef long long ll;
 long long GCD(long long a, long long b){if(b==0)return a;return GCD(b,a%b);}
 
 int main() {
-    int N, M; cin >> N >> M;
-    vector<priority_queue<int>> jobs(100010);
-    repp(i,0,N) {
-        int A, B; cin >> A >> B;
-        jobs[A].push(B);
-    }
-    ll ans = 0;
+    int N; cin >> N;
+    vector<int> A(N);
+    vector<int> B(N);
+    vector<int> C(N-1);
+    repp(i,0,N) cin >> A[i];
+    repp(i,0,N) cin >> B[i];
+    repp(i,0,N-1) cin >> C[i];
+    int ans = 0;
 
-    repp(i,0,M+1) {
-        int x = -1;
-        repp(j, 0, i+1) {
-            if (jobs[j].empty()) continue;
-            if (x < 0) x = j;
-            else x = jobs[x].top() > jobs[j].top() ? x : j;
+    repp(i,0,N) {
+        ans += B[A[i]-1];
+        if (i > 0 && A[i] - A[i-1] == 1) {
+            ans += C[A[i-1]-1];
         }
-        if (x < 0) continue;
-        ans += jobs[x].top(); jobs[x].pop();
     }
     cout << ans << endl;
 }

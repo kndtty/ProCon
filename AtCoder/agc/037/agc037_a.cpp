@@ -16,7 +16,22 @@ typedef long long ll;
 long long GCD(long long a, long long b){if(b==0)return a;return GCD(b,a%b);}
 
 int main() {
-    int N, M; cin >> N >> M;
-    long long res = res = pow(2, M) * (M * 1900 + (N - M) * 100);
+    string S; cin >> S;
+
+    int res = 0;
+
+    string back = "";
+    int left = 0;
+    int size = 1;
+    while(left < S.size()) {
+        if (back != S.substr(left, size)) {
+            ++res;
+            back = S.substr(left, size);
+            left += size;
+            size = 1;
+        } else {
+            ++size;
+        }
+    }
     cout << res << endl;
 }
